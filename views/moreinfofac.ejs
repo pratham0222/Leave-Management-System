@@ -1,0 +1,64 @@
+<% include ./partial/header %><% include ./partial/hodfunction %>
+<div
+  class="col-sm-6"
+  style="    flex: 0 0 50%;
+  max-width: 80%;
+  margin-left: 400px;
+  margin-top: -400px;border: 1px solid pink ;  text-align: -webkit-center;"
+>
+  <form action="/hod/<%=hod.id%>/leave/<%=faculty.id%>/info" method="POST">
+    <div class="container-fluid bg-3 text-center">
+      <h1 style="margin-top: 40px;"><%=faculty.name %></h1>
+      <br />
+      <div class="row">
+        <div class="col-sm-4">
+          <img
+            style="height:150px;width:150px;border-radius: 100%"
+            src="<%=faculty.image%>"
+            alt="image"
+          />
+        </div>
+        <%faculty.leaves.forEach(function(leave){%>
+          <%if(leave.status==="pending"){%>
+        <div class="col-sm-4" style="width: 100%">
+          <h3>From: <%=moment(leave.from).format('DD/MM/YYYY') %></h3>
+          <h3>To: <%=moment(leave.to).format('DD/MM/YYYY') %></h3>
+          <h3>Department: <%=faculty.department %></h3>
+          <h3>Casual Leave: <%=faculty.casualLeave %></h3>
+          <h3>Sick Leave: <%=faculty.sickLeave %></h3>
+          <h3>Earn Leave: <%=faculty.earnLeave %></h3>
+          <h3>Leave Type: <%=leave.formType %></h3>
+
+
+          <div class="col-sm-6">
+            <!-- <input
+              type="submit"
+              class="btn btn-block btn-success"
+              name="action"
+              value="Approve"
+            />
+            <input
+              type="submit"
+              class="btn btn-block btn-danger"
+              name="action"
+              value="Deny"
+            /> -->
+            <button
+            type="submit"
+            class="btn btn-block btn-success"
+            name="action"
+            value="Approve">Approve</button>
+            <button
+            type="submit"
+            class="btn btn-block btn-danger"
+            name="action"
+            value="Deny">Deny</button>
+          </div>
+        </div>
+        <%}%>
+        <%})%>
+      </div>
+    </div>
+  </form>
+  <% include ./partial/footer %>
+</div>

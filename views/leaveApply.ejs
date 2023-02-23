@@ -1,0 +1,54 @@
+<% include ./partial/header %> <% include ./partial/facfunction %>
+
+<div
+  class="col-sm-6"
+  style="    flex: 0 0 50%;
+max-width: 50%;
+margin-left: 431px;
+margin-top: -181px;  text-align: -webkit-center;"
+>
+  <h1>Apply for leave here <%=faculty.name%></h1>
+  <form action="/faculty/<%=faculty._id%>/apply" method="POST">
+    <!-- <div class="form-group">
+      <input
+        type="text"
+        placeholder="subject"
+        name="leave[subject]"
+        class="form-control"
+      /> -->
+      
+      <div  class="form-group">
+        <input type="radio" id="r1" name="type" value="casual" />
+        Casual Leave
+        <input type="radio" id="r2" name="type" value="sick" />
+        Sick Leave
+        <input type="radio" id="r3" name="type" value="earn" />
+        Earn Leave
+      </div>
+
+    <div class="form-group">
+      <label for="from">From:</label>
+      <input
+        type="date"
+        data-date-inline-picker="true"
+        id="from"
+        name="leave[from]"
+      />
+    </div>
+    <div class="form-group">
+      <label for="to">To:</label>
+      <input
+        type="date"
+        data-date-inline-picker="true"
+        id="to"
+        name="leave[to]"
+      />
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-lg btn-block btn-default">Submit</button>
+    </div>
+  </form>
+
+  <% include ./partial/footer %>
+</div>

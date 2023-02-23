@@ -1,0 +1,143 @@
+<% include ./partial/header %>
+<div class="lop"style="border:1px solid pink;">
+    <% if (locals.errors) { %>
+      <div class="alert alert-danger" role="alert"style="">
+        <% locals.errors.forEach(function(errors) {  console.log(errors)%>
+        <h5><%= errors.msg %></h5>
+
+        <% }); %>
+      </div>
+      <% } %>
+</div>
+<div
+  class="container"
+  style=" position: relative;
+border-radius: 5px;
+background-color: #f2f2f2;
+padding: 60px 0 20px 0;
+width: 60%;"
+>
+
+        
+
+        <form action="/principal/register" method="POST" style="margin: 0 auto;">
+          <div class="row">
+            <div class="col">
+              <h2 style="    text-align: center;">
+                Register
+              </h2>
+              <div class="form-group form-inline">
+                <label for="name" style="width: 200px;
+                display: inline-block;
+                text-align: right;
+                ">Name</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="name"
+                  placeholder="name"
+                  name="name"
+                  style="float: left;;
+                  text-align: left;
+                  "
+                />
+              </div>
+              
+                
+
+              
+              <div class="form-group form-inline">
+                  <label for="username" style="width: 200px;
+                  display: inline-block;
+                  text-align: right;
+                  ">Username</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="username"
+                  placeholder="username"
+                  name="username"
+                />
+                </div>
+                <div class="form-group form-inline">
+                  <label for="USN" style="width: 200px;
+                  display: inline-block;
+                  text-align: right;
+                  ">USN</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="USN"
+                  placeholder="usn"
+                  name="USN"
+                />
+              </div>
+               
+              <div class="form-group form-inline">
+                  <label for="password"style="width: 200px;
+                  display: inline-block;
+                  text-align: right;
+                  ">Password</label>
+                <input
+                  class="form-control"
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="password"
+                />
+              </div>
+              <!-- confirm password -->
+              <div class="form-group form-inline">
+                  <label for="cpassword"style="width: 200px;
+                  display: inline-block;
+                  text-align: right;
+                  ">Confirm Password</label>
+                <input
+                  class="form-control"
+                  type="password"
+                  id="cpassword"
+                  name="password2"
+                  placeholder="Confirm password"
+                />
+              </div>
+              <!-- Department -->
+              
+              
+                
+                
+                
+              <!-- image -->
+              <div class="form-group form-inline">
+                  <label for="img"style="width: 200px;
+                  display: inline-block;
+                  text-align: right;
+                  ">Image Url</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="img"
+                  placeholder="img url"
+                  name="image"
+                />
+              </div>
+
+              <div class="form-group">
+                <button
+                  type="submit"
+                  class="btn btn-lg btn-primary btn-default btn-block"
+                  style=" color:#fff;"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- name -->
+        </form>
+
+        <a href="/">Back</a>
+      </div>
+    </div>
+  </div>
+  <% include ./partial/footer %>
+</div>

@@ -1,0 +1,57 @@
+<% include ./partial/header %><% include ./partial/principalfunction %>
+<div
+  class="col-sm-6"
+  style="    flex: 0 0 50%;
+  max-width: 80%;
+  margin-left: 400px;
+  margin-top: -400px;border: 1px solid pink ;  text-align: -webkit-center;"
+>
+  <form action="/principal/<%=principal.id%>/leave/<%=hod.id%>/info" method="POST">
+    <div class="container-fluid bg-3 text-center">
+      <h1 style="margin-top: 40px;"><%=hod.name %></h1>
+      <br />
+      <div class="row">
+        <div class="col-sm-4">
+          <img
+            style="height:150px;width:150px;border-radius: 100%"
+            src="<%=hod.image%>"
+            alt="image"
+          />
+        </div>
+        <%hod.leaves.forEach(function(leave){%>
+          <%if(leave.status==="pending"){%>
+        <div class="col-sm-4" style="width: 100%">
+          <h3>Status:<%=leave.status %></h3>
+          <h3>From:<%=moment(leave.to).format('DD/MM/YYYY') %></h3>
+          <h3>To:<%=moment(leave.from).format('DD/MM/YYYY') %></h3>
+          <h3><%=leave.days%></h3>
+          <h3>Department:<%=hod.department %></h3>
+          <h3>Casual Leave:<%=hod.casualLeave %></h3>
+          <h3>Sick Leave:<%=hod.sickLeave %></h3>
+          <h3>Earn Leave:<%=hod.earnLeave %></h3>
+          <h3>Leave Type:<%=leave.formType %></h3>
+
+
+          <div class="col-sm-6">
+            <input
+              type="submit"
+              class="btn btn-block btn-success"
+              name="action"
+              value="Approve"
+            />
+            <input
+              type="submit"
+              class="btn btn-block btn-danger"
+              name="action"
+              value="Deny"
+            />
+          </div>
+        </div>
+        <%}%>
+
+        <%})%>
+      </div>
+    </div>
+  </form>
+  <% include ./partial/footer %>
+</div>
